@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Your Website Title</title>
+<link rel="stylesheet" href="stylews.css">
+<style>
+
+
+
+</style>
+</head>
+<body>
+<header>
+    <h1> FLOWER CAFE </h1>
+    <nav>
+        <a href="Homepage.html" class="active">Home</a>
+        <a href="aboutthecafe.html">About</a>
+        <a href="menu1.html">Menu</a>
+        <a href="testorder.html">Place Order</a>
+        <a href="leaveareview.html">Review</a>
+    </nav>
+</header>
+<main>
+<div class="image-container">
+    <img src="image1forwebsite.jpg" alt="Image 1">
+    <img src="image2forwebsite.jpg" alt="Image 2">
+    <img src="image3forhomepage.jpg" alt="Image 3">
+    <img src="image4.jpg" alt="Image 4">
+<br>
+<br>    
+</div>
+    <!-- 4 images next to eachother showing the cafe-->
+
+</main>
+<br>
+<br>
+<div class="formcontainer">
+    <form class="aboutform">
+      <h1>About the Cafe!</h1>
+      <p>Flower Cafe is excited to make its debut at the University of Houston Sugar Land.
+        We are pleased to provide an array of food options that can meet multiple different food allergies,
+        diets, etc. Please feel free to leave a review after visiting us, or even leave suggestions to improve.
+        We hope you enjoy our deliciously crafted meal items... 
+        <a href="aboutthecafe.html" id="link"> <button type="button"> Learn more about the cafe! </button> </a>
+      </p>
+      <a href="biography.html" id="link"> <button type="button">Meet the Owner</button> </a>
+    </form>
+  </div>
+<br>
+<br>
+<div class="contactform">
+  <form>
+  <h1 class="formtitle"> Get in touch!</h1>
+  <br>
+  <br>
+  <div class="leftcontainer" >
+  
+  <label id="left">Name:</label>
+  <br>
+  <input type="text" class="input-type">
+  <label id="left"> Phone Number: </label>
+  <input type="text" width="200px">
+  <br>
+  </div>
+  
+  <div class="rightcontainer">
+  
+  <label id="right">Email:</label>
+  <br>
+  <input type="text" class="input-type">
+  <label id="right"> Message: </label>
+  <br>
+  <input type="text" class="input-type">
+  </div>
+  <br><br><br><br><br><br>
+  <bu<br><br><br><br><br><br>
+ 
+  <button id="contactbutton">Submit</button>
+  </form>
+
+
+
+
+
+</div>
+</body>
+<script>
+
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.querySelector("form");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent the default form submission
+                const formData = new FormData(form);
+                fetch('/submit-form', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    alert('Form submitted successfully');
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    alert('Error submitting form');
+                });
+            });
+        });
+    </script>
+  </script>
+<footer>
+    <p>&copy; 2024 Flower Cafe. All rights reserved.</p>
+</footer>
+</html>

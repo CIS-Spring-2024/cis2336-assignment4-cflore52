@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Your Website Title</title>
+    <link rel="stylesheet" href="stylews.css">
+    <style>
+        #aboutparagraph
+        {
+            
+        }
+        * { box-sizing: border-box }
+
+        /* Slideshow container */
+        .slideshow-container {
+            max-width: 1000px;
+            position: relative;
+            margin: auto;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        /* Hide the images by default */
+        .mySlides {
+            display: none;
+        }
+
+        /* Next & previous buttons */
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            margin-top: -22px;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            transition: 0.6s ease;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+        }
+
+        /* Position the "next button" to the right */
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        /* Caption text */
+        .text {
+            color: #f2f2f2;
+            font-size: 15px;
+            padding: 8px 12px;
+            position: absolute;
+            bottom: 8px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Number text (1/3 etc) */
+        .numbertext {
+            color: #f2f2f2;
+            font-size: 12px;
+            padding: 8px 12px;
+            position: absolute;
+            top: 0;
+        }
+
+        /* The dots/bullets/indicators */
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+
+
+        /* Fading animation */
+        .fade {
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @keyframes fade {
+            from { opacity: .4 }
+            to { opacity: 1 }
+        }
+        nav {
+    background-color: white; /* Background color same as header */
+    text-align: center;
+   
+}
+nav {
+    background-color: white; /* Background color same as header */
+    text-align: center;
+   
+}
+nav a {
+    padding: 10px 20px;
+    color: black; /* Text color white */
+    text-decoration: none;
+
+}
+nav a:hover {
+    background-color: #FFE6EE;
+}
+nav a.active {
+    color:#FE4DAF; 
+    
+}
+
+    </style>
+</head>
+<body>
+    <header>
+    <h1> FLOWER CAFE </h1>
+    <nav>
+        <a href="Homepage.html" >Home</a>
+        <a href="aboutthecafe.html" class="active">About</a>
+        <a href="menu1.html">Menu</a>
+        <a href="testorder.html">Place Order</a>
+        <a href="leaveareview.html">Review</a>
+    </nav>
+</header>
+<!-- Slideshow container -->
+<div class="slideshow-container" style="background-color: #FFE6EE;">
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+        <div class="numbertext">1 / 3</div>
+        <img src="slideshow1.jpg" style="width:100%">
+        <div class="text"> © Flower Cafe</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">2 / 3</div>
+        <img src="slideshow2.jpg" style="width:100%">
+        <div class="text"> © Flower Cafe</div>
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext">3 / 3</div>
+        <img src="slideshow3.jpg" style="width:100%">
+        <div class="text">© Flower Cafe</div>
+    </div>
+
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<div class="aboutthecafeparagraph">
+<h1> About the Cafe </h1>
+<p id="aboutparagraph"> 
+    Welcome to the Flower Cafe, where blooms meet brews in a sanctuary of floral wonder. As the proud owner, I invite you to experience the magic of our cafe, where every petal is meticulously placed to create an atmosphere of beauty and tranquility. </p>
+    <p id="aboutparagraph">
+    Step inside and be greeted by the delicate scent of flowers mingling with the aroma of freshly brewed coffee. Our cafe is more than just a place to grab a drink; it's a haven for the soul, with cozy nooks and comfortable seating perfect for studying, catching up with friends, or simply unwinding after a long day.</p>
+    <p id="aboutparagraph">
+    Our elaborate decorations, from cascading vines to fresh bouquets adorning every table, create an enchanting ambiance that enchants all who enter. It's as if nature itself has decided to take residence indoors, blessing our patrons with its beauty.</p>
+    <p id="aboutparagraph">
+    But the Flower Cafe is not just a place to relax; it's also a venue for celebrations. From intimate birthday parties to extravagant wedding receptions, our cafe provides the perfect backdrop for any event, with impeccable service and a touch of floral elegance.
+</p>
+<p id="aboutparagraph">
+    So whether you're looking for a quiet spot to study, a place to catch up with friends, or a venue for your next special occasion, the Flower Cafe welcomes you with open arms. Come and experience the magic for yourself, and let us transport you to a world where blooms and brews collide in perfect harmony. </p>
+</div>
+<br><br><br>
+<script>
+let slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("mySlides");
+    let dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {slideIndex = slides.length}
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex-1].style.display = "block";
+    dots[slideIndex-1].className += " active";
+}
+</script>
+
+</body>
+<footer>
+    <p>&copy; 2024 Flower Cafe. All rights reserved.</p>
+</footer>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Your Website Title</title>
+<link rel="stylesheet" href="stylews.css">
+<style>
+#contactbutton {
+    background-color: #FE4DAF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    display: block; /* Makes the button a block element */
+    width: 30%; /* Adjust the width of the button */
+    margin-left: auto; /* Together with margin-right, centers the button */
+    margin-right: auto;
+}
+
+footer{
+    width: 100%;
+}
+
+</style>
+</head>
+<body>
+<header>
+    <h1> FLOWER CAFE </h1>
+    <nav>
+        <a href="Homepage.html">Home</a>
+        <a href="aboutthecafe.html">About</a>
+        <a href="menu1.html">Menu</a>
+        <a href="testorder.html">Place Order</a>
+        <a href="leaveareview.html"class="active">Review</a>
+    </nav>
+</header>
+<body style="background-color: #FFE6EE;">
+    <div class="contactform">
+        <form method="POST" action="/submit-form">
+        <h1 class="formtitle"> Get in touch!</h1>
+        <br>
+        <br>
+        <div class="leftcontainer" >
+        
+        <label id="left">Name:</label>
+        <br>
+        <input type="text" class="input-type">
+        <label id="left"> Phone Number: </label>
+        <input type="text" width="200px">
+        <br>
+        </div>
+        
+        <div class="rightcontainer">
+        
+        <label id="right">Email:</label>
+        <br>
+        <input type="text" class="input-type">
+        <label id="right"> Message: </label>
+        <br>
+        <input type="text" class="input-type">
+        </div>
+        <br><br><br><br><br><br>
+        <bu<br><br><br><br><br><br>
+       
+        <button id="contactbutton" type="submit">Submit</button>
+        </form>
+        
+        
+        
+        
+        
+        </div>
+    </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const form = document.querySelector("form");
+        form.addEventListener("submit", function(event) {
+            event.preventDefault(); // Still prevent the default form submission
+    
+            const formData = new FormData(form);
+            fetch('/submit-form', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Refresh or redirect after success
+                window.location.reload(); // Refresh the page
+                // or
+                // window.location.href = '/some-other-page'; // Redirect to another page
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                alert('Error submitting form');
+            });
+        });
+    });
+</script>
+    <footer>
+        <p>&copy; 2024 Flower Cafe. All rights reserved.</p>
+    </footer>
+    
+    </html>

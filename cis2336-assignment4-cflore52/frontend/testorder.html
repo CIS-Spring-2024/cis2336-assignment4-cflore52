@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="stylews.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> Order Form</title>
+
+
+<style>
+#orderform {
+  width: 50%;
+  padding: 0 100px;
+  border: 1px solid ;
+  box-sizing: border-box;
+  margin: auto; /* Add this to center the form horizontally */
+  text-align: center; /* Center align the content inside the form */
+  padding-bottom: 100px;
+  background-color: white;
+}
+body{
+    background-color: #FE4DAF;
+}
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+    <header>
+        <h1> FLOWER CAFE </h1>
+        <nav>
+            <a href="Homepage.html">Home</a>
+            <a href="aboutthecafe.html">About</a>
+            <a href="menu1.html">Menu</a>
+            <a href="testorder.html" class="active">Place Order</a>
+            <a href="leaveareview.html">Review</a>
+        </nav>
+    </header>
+<br><br>
+<!--Navigation Same as Always-->
+<form id="orderform" class="orderform" action="/submit-order" method="POST">
+    <h2 style="text-align: center;">Place your Order!</h2>
+<div>
+    <label for="customerName">Name:</label>
+    <input type="text" id="customerName" oninput="validateName()" required><br>
+    <div id="nameError" style="color: red;"></div>
+  
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" oninput="validatePhoneNumber()" required><br>
+    <div id="phoneError" style="color: red;"></div>
+  
+    <label for="pickupDateTime">Pickup Date and Time:</label>
+    <input type="datetime-local" id="pickupDateTime" required><br>
+  </div>
+
+<hr>
+<!--information we need to place order, that way when they pick up, they pay-->
+<div id="coffee">
+  <h3>Latte</h3>
+  <label for="coffeeQty">Quantity:</label>
+  <input type="number" id="coffeeQty" min="0" value="0" onchange="updateOptions('coffeeOptions')">
+  <div id="coffeeOptions" style="display: none;">
+    <label for="coffeeSize">Size:</label>
+    <select id="coffeeSize" onchange="updateTotal()">
+      <option value="0">Select size</option>
+      <option value="1">Large</option>
+      <option value="2">Small</option>
+    </select><br>
+
+    <label for="coffeeMilk">Milk:</label>
+    <select id="coffeeMilk" onchange="updateTotal()">
+      <option value="0">No milk</option>
+      <option value="1">Regular</option>
+      <option value="2">Soy</option>
+    </select><br>
+
+    <label for="coffeeSyrup">Syrup:</label>
+    <select id="coffeeSyrup" onchange="updateTotal()">
+      <option value="0">No syrup</option>
+      <option value="1">Vanilla</option>
+      <option value="2">Caramel</option>
+    </select><br>
+  </div>
+</div>
+
+<div id="latte">
+  <h3>Capuccino</h3>
+  <label for="latteQty">Quantity:</label>
+  <input type="number" id="latteQty" min="0" value="0" onchange="updateOptions('latteOptions')">
+  <div id="latteOptions" style="display: none;">
+    <label for="latteSize">Size:</label>
+    <select id="latteSize" onchange="updateTotal()">
+      <option value="0">Select size</option>
+      <option value="1">Large</option>
+      <option value="2">Small</option>
+    </select><br>
+
+    <label for="latteMilk">Milk:</label>
+    <select id="latteMilk" onchange="updateTotal()">
+      <option value="0">No milk</option>
+      <option value="1">Regular</option>
+      <option value="2">Soy</option>
+    </select><br>
+
+    <label for="latteSyrup">Syrup:</label>
+    <select id="latteSyrup" onchange="updateTotal()">
+      <option value="0">No syrup</option>
+      <option value="1">Vanilla</option>
+      <option value="2">Caramel</option>
+    </select><br>
+  </div>
+</div>
+
+<div id="cappuccino">
+  <h3>Espresso</h3>
+  <label for="cappuccinoQty">Quantity:</label>
+  <input type="number" id="cappuccinoQty" min="0" value="0" onchange="updateOptions('cappuccinoOptions')">
+  <div id="cappuccinoOptions" style="display: none;">
+    <label for="cappuccinoSize">Size:</label>
+    <select id="cappuccinoSize" onchange="updateTotal()">
+      <option value="0">Select size</option>
+      <option value="1">Large</option>
+      <option value="2">Small</option>
+    </select><br>
+
+    <label for="cappuccinoMilk">Milk:</label>
+    <select id="cappuccinoMilk" onchange="updateTotal()">
+      <option value="0">No milk</option>
+      <option value="1">Regular</option>
+      <option value="2">Soy</option>
+    </select><br>
+
+    <label for="cappuccinoSyrup">Syrup:</label>
+    <select id="cappuccinoSyrup" onchange="updateTotal()">
+      <option value="0">No syrup</option>
+      <option value="1">Vanilla</option>
+      <option value="2">Caramel</option>
+    </select><br>
+  </div>
+</div>
+
+<div id="hotChocolate">
+  <h3>Green Tea</h3>
+  <label for="hotChocolateQty">Quantity:</label>
+  <input type="number" id="hotChocolateQty" min="0" value="0" onchange="updateOptions('hotChocolateOptions')">
+  <div id="hotChocolateOptions" style="display: none;">
+    <label for="hotChocolateSize">Size:</label>
+    <select id="hotChocolateSize" onchange="updateTotal()">
+      <option value="0">Select size</option>
+      <option value="1">Large</option>
+      <option value="2">Small</option>
+    </select><br>
+
+    <label for="hotChocolateMilk">Milk:</label>
+    <select id="hotChocolateMilk" onchange="updateTotal()">
+      <option value="0">No milk</option>
+      <option value="1">Regular</option>
+      <option value="2">Soy</option>
+    </select><br>
+
+    <label for="hotChocolateSyrup">Syrup:</label>
+    <select id="hotChocolateSyrup" onchange="updateTotal()">
+      <option value="0">No syrup</option>
+      <option value="1">Vanilla</option>
+      <option value="2">Caramel</option>
+    </select><br>
+  </div>
+</div>
+
+<div id="menuOption1">
+  <h3>Black Tea</h3>
+  <label for="menuOption1Qty">Quantity:</label>
+  <input type="number" id="menuOption1Qty" min="0" value="0" onchange="updateOptions('menuOption1Options')">
+  <div id="menuOption1Options" style="display: none;">
+    <label for="menuOption1Size">Size:</label>
+    <select id="menuOption1Size" onchange="updateTotal()">
+      <option value="0">Select size</option>
+      <option value="1">Large</option>
+      <option value="2">Small</option>
+    </select><br>
+
+    <label for="menuOption1Milk">Milk:</label>
+    <select id="menuOption1Milk" onchange="updateTotal()">
+      <option value="0">No milk</option>
+      <option value="1">Regular</option>
+      <option value="2">Soy</option>
+    </select><br>
+
+    <label for="menuOption1Syrup">Syrup:</label>
+    <select id="menuOption1Syrup" onchange="updateTotal()">
+      <option value="0">No syrup</option>
+      <option value="1">Vanilla</option>
+      <option value="2">Caramel</option>
+    </select><br>
+  </div>
+</div>
+
+<div id="menuOption2">
+  <h3>Chai Tea</h3>
+  <label for="menuOption2Qty">Quantity:</label>
+  <input type="number" id="menuOption2Qty" min="0" value="0" onchange="updateOptions('menuOption2Options')">
+  <div id="menuOption2Options" style="display: none;">
+    <label for="menuOption2Size">Size:</label>
+    <select id="menuOption2Size" onchange="updateTotal()">
+      <option value="0">Select size</option>
+      <option value="1">Large</option>
+      <option value="2">Small</option>
+    </select><br>
+    <label for="menuOption2Milk">Milk:</label>
+    <select id="menuOption2Milk" onchange="updateTotal()">
+      <option value="0">No milk</option>
+      <option value="1">Regular</option>
+      <option value="2">Soy</option>
+    </select><br>
+
+    <label for="menuOption2Syrup">Syrup:</label>
+    <select id="menuOption2Syrup" onchange="updateTotal()">
+      <option value="0">No syrup</option>
+      <option value="1">Vanilla</option>
+      <option value="2">Caramel</option>
+    </select><br>
+  </div>
+
+</div>
+<!--the code above allows for a drop down when a menu item is selected, so the order form is not too long-->
+<div id="menuOption3">
+  <h3>Croissant</h3>
+  <label for="menuOption3Qty">Quantity:</label>
+  <input type="number" id="menuOption3Qty" min="0" value="0" onchange="updateOptions('menuOption3Options')">
+  <div id="menuOption3Options" style="display: none;">
+      <!-- Fixed price for this option -->
+      <p>Price: $3.50</p>
+  </div>
+</div>
+
+<div id="menuOption4">
+  <h3>Muffin</h3>
+  <label for="menuOption4Qty">Quantity:</label>
+  <input type="number" id="menuOption4Qty" min="0" value="0" onchange="updateOptions('menuOption4Options')">
+  <div id="menuOption4Options" style="display: none;">
+      <!-- Fixed price for this option -->
+      <p>Price: $4.00</p>
+  </div>
+</div>
+
+<div id="menuOption5">
+  <h3>Donut</h3>
+  <label for="menuOption5Qty">Quantity:</label>
+  <input type="number" id="menuOption5Qty" min="0" value="0" onchange="updateOptions('menuOption5Options')">
+  <div id="menuOption5Options" style="display: none;">
+      <!-- Fixed price for this option -->
+      <p>Price: $3.00</p>
+  </div>
+</div>
+<!--no options since this is only one item and comes as is-->
+<br>
+<br>
+<hr>
+
+<p id="total"></p>
+
+<button onclick="submitOrder()" type="submit">Submit Order</button>
+</form>
+<script src="testorder.js">
+
+</script>
+
+</body>
+
+    
+    
+    
+    
+    
+    </div>
+
+
+<footer>
+    <p>&copy; 2024 Flower Cafe. All rights reserved.</p>
+</footer>
+
+</html>
